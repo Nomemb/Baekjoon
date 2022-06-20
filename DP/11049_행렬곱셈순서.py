@@ -11,4 +11,4 @@ for i in range(1,N):
         for k in range(j,x):
             m[j][x] = min(m[j][x], m[j][k] + m[k+1][x] + p[j][0]*p[k][1]*p[x][1])
 
-print(m[0][N-1])
+print(m)
