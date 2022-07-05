@@ -1,12 +1,4 @@
-A,B = map(int,input().split())
-C = int(input())
-
-A = A + C // 60
-B = B + C % 60
-
-if B >= 60:
-    A += 1
-    B -= 60
-
-A = A % 24
-print(f"{A} {B}")
+N,M = map(int, input().split())
+a = set(map(int, input().split()))
+b = set(map(int, input().split()))
+print(len(a-b)+len(b-a))
