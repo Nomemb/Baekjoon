@@ -1,6 +1,3 @@
-from cProfile import label
-
-
 T = int(input())
 DP = [0 for i in range(1000001)]
 DP[0],DP[1],DP[2] = 1,1,2
