@@ -5,7 +5,7 @@ using namespace std;
 
 int solve(int *arr, int size, int value, int max)
 {
-    long long int start, end, ans, mid;
+    long long int start, end, mid;
     start = 1;
     end = max;
     while(start <= end)
