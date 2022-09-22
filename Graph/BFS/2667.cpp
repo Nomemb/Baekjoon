@@ -41,7 +41,6 @@ void bfs(int y, int x)
                     cnt++;
                 }
             }
-
         }
     }
 }
