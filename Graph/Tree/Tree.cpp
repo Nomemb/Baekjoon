@@ -1,57 +1,98 @@
 #include <iostream>
+
 using namespace std;
 
-class Set
+#define MAX_NUM 15
+typedef struct node *treePointer;
+typedef struct node{
+    int data;
+    treePointer leftChild, rightChild;
+}  node;
+
+treePointer Queue[MAX_NUM];
+int front = 0, rear = 0;
+
+void Enqueue(treePointer ptr){
+    Queue[front++] = ptr;
+}
+treePointer Dequeue(){
+    return Queue[rear++];
+}
+
+void preorder(treePointer ptr){
+    if(ptr){
+        cout << ptr->data << ' ';
+        preorder(ptr->leftChild);
+        preorder(ptr->rightChild);
+    }
+}
+
+void inorder(treePointer ptr){
+    if(ptr){
+        inorder(ptr->leftChild);
+        cout << ptr->data << ' ';
+        inorder(ptr->rightChild);
+    }
+}
+
+void postorder(treePointer ptr)
 {
-    struct Node
+    if(ptr){
+        postorder(ptr->leftChild);
+        postorder(ptr->rightChild);
+        cout << ptr->data << ' ';
+    }
+}
+
+void levelorder(treePointer ptr)
+{
+    if(!ptr) return;
+    Enqueue(ptr);
+    while(true){
+        ptr = Dequeue();
+        if(ptr)
+        {
+            cout << ptr->data << ' ';
+            if(ptr->leftChild)
+                Enqueue(ptr->leftChild);
+            if(ptr->rightChild)
+                Enqueue(ptr->rightChild);
+        }
+        else
+            break;
+    }
+
+}
+
+int main()
+{
+    node nodes[MAX_NUM+1];
+    for(int i=1; i<=MAX_NUM; ++i)
     {
-        Node(int data = 0, Node* parent = nullptr, Node* left = nullptr, Node* right = nullptr);
-        Node(const Node&) = delete;
-        Node& operator=(const Node&) = delete;
-        ~Node() = default;
+        nodes[i].data = i;
+        nodes[i].leftChild = NULL;
+        nodes[i].rightChild = NULL;
+    }
 
-        int Data = 0;
-        Node* Parent = nullptr;
-        Node* Left = nullptr;
-        Node* Right = nullptr;
-    };
+    for(int i=1; i<=MAX_NUM; ++i)
+    {
+        if(i%2 == 0)
+            nodes[i/2].leftChild = &nodes[i];
+        else
+            nodes[i/2].rightChild = &nodes[i];
+    }
 
-    public:
-        ~Set();
-
-        // 트리의 높이
-        int height() const;  // 큐 이용
-        int height2() const; // 재귀 이용
-
-        bool empty() const;
-        // 트리의 크기 반환
-        size_t size() const;
-
-        void clear();
-        // 트리에 값 삽입
-        bool insert(int value);
-
-        // 트리에서 값 삭제
-        void erase(int value);
-        void erase(Node* pos);
-
-        // 트리에서 값 찾기
-        Node* find(int value) const;
-
-        // 순회
-        void traverseByPreorder() const;   // 전위순회
-        void traverseByInorder() const;    // 중위순회
-        void traverseByPostorder() const;  // 후위순회
-        void traverseByLevelorder() const; // 층별순회
-
-    private:
-        void traverseByPreorderHelper(Node* node) const;
-        void traverseByInorderHelper(Node* node) const;
-        void traverseByPostorderHelper(Node* node) const;
-
-        int heightHelper(Node* node) const;
-
-    private:
-        Node* _head = new Node();
-        size_t _size = 0;
-};
+    cout << "Preorder : ";
+    preorder(&nodes[1]);
+    cout << "\n";
+    cout << "Inorder : ";
+    inorder(&nodes[1]);
+    cout << "\n";
+    cout << "Postorder : ";
+    postorder(&nodes[1]);
+    cout << "\n";
+    cout << "Levelorder : ";
+    levelorder(&nodes[1]);
+    cout << "\n";
+    return 0;
+}

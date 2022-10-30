@@ -1,4 +1,9 @@
-N,M = map(int, input().split())
-a = set(map(int, input().split()))
-b = set(map(int, input().split()))
-print(len(a-b)+len(b-a))
+from audioop import avg
+
+
+a = []
+for _ in range(5):
+    a.append(int(input()))
+a.sort()
+print(sum(a)//5)
+print(a[2])
