@@ -4,19 +4,19 @@
 """
 
 N = int(input())
-lst = [i for i in range(N+1)]
-ans = [0 for _ in range(N+1)]
+lst = [i for i in range(N + 1)]
+ans = [0 for _ in range(N + 1)]
 
-for i in range(1,N+1):
-    k = int(i**0.5)
-    K = k//2
-    if k**2==i:
-        ans[i]=1
+for i in range(1, N + 1):
+    k = int(i ** 0.5)
+    K = k // 2
+    if k ** 2 == i:
+        ans[i] = 1
     else:
         ans[i] = lst[i]
-        while k>K:
-            if ans[i] > ans[i-k*k]+1:
-                ans[i] = ans[i-k*k]+1
+        while k > K:
+            if ans[i] > ans[i - k * k] + 1:
+                ans[i] = ans[i - k * k] + 1
             k -= 1
 
 print(ans[N])

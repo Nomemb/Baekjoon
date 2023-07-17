@@ -16,13 +16,12 @@ for i in range(len(l)):
         if not s:
             ans += " " + str(0)
         else:
-            ans += " " + str(n[-1]+1)
+            ans += " " + str(n[-1] + 1)
         s.append(l[i])
         n.append(i)
     else:
-        ans += " " + str(n[-1]+1)
+        ans += " " + str(n[-1] + 1)
         s.append(l[i])
         n.append(i)
 
 print(ans)
-

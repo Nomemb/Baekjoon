@@ -1,11 +1,12 @@
 import sys
+
 input = sys.stdin.readline
 
-N,P = map(int,input().split())
+N, P = map(int, input().split())
 stack = [[] for i in range(7)]
 count = 0
 for i in range(N):
-    a,b = map(int,input().rstrip().split())
+    a, b = map(int, input().rstrip().split())
     if not stack[a]:
         stack[a].append(b)
         count += 1
@@ -18,4 +19,3 @@ for i in range(N):
             count += 1
 
 print(count)
-

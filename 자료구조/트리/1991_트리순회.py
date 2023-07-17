@@ -1,9 +1,10 @@
 class Node:
     def __init__(self, data, left, right):
         self.data = data
-        self.left = left 
+        self.left = left
         self.right = right
-    
+
+
 def preorder(node):
     print(node.data, end='')
     if node.left != '.':
@@ -11,10 +12,11 @@ def preorder(node):
     if node.right != '.':
         preorder(tree[node.right])
 
+
 def inorder(node):
     if node.left != '.':
         inorder(tree[node.left])
-    print(node.data, end ='')
+    print(node.data, end='')
     if node.right != '.':
         inorder(tree[node.right])
 
@@ -25,6 +27,7 @@ def postorder(node):
     if node.right != '.':
         postorder(tree[node.right])
     print(node.data, end='')
+
 
 if __name__ == "__main__":
 

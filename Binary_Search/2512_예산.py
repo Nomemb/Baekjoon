@@ -7,10 +7,11 @@ max = 0
 array.sort()
 ans = 0
 
+
 def solve(start, end):
     global ans
     while start <= end:
-        mid = (start + end)//2
+        mid = (start + end) // 2
         sum = 0
         for i in range(len(array)):
             if array[i] >= mid:
@@ -25,5 +26,6 @@ def solve(start, end):
             ans = mid if mid > ans else ans
 
     return ans
+
 
 print(solve(0, array[-1]))

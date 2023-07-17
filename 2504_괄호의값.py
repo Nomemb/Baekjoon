@@ -1,6 +1,7 @@
 s = input()
 stack = []
 
+
 def solve(s):
     if len(s) % 2 == 1:
         print(0)
@@ -18,7 +19,7 @@ def solve(s):
                         print(0)
                         return
                     elif top == "(":
-                        stack.append(ans*mul)
+                        stack.append(ans * mul)
                         ans = 1
                         break
                     else:
@@ -39,7 +40,7 @@ def solve(s):
                         print(0)
                         return
                     elif top == "[":
-                        stack.append(ans*mul)
+                        stack.append(ans * mul)
                         ans = 1
                         break
                     else:
@@ -55,4 +56,6 @@ def solve(s):
             print(0)
             return
     print(sum(stack))
+
+
 solve(s)

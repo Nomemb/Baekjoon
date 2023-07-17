@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def BFS(graph):
     queue = deque()
     queue.append(1)
@@ -9,8 +10,8 @@ def BFS(graph):
         if x == 100:
             print(graph[100])
             return
-        
-        dx = [1,2,3,4,5,6]
+
+        dx = [1, 2, 3, 4, 5, 6]
         for i in range(6):
             nx = x + dx[i]
             if nx < 101 and graph[nx] == 0:
@@ -20,20 +21,18 @@ def BFS(graph):
                     if graph[tmpx] == 0:
                         graph[tmpx] = graph[nx]
                         queue.append(tmpx)
-                
+
                 elif nx in snake:
                     tmpx = snake[nx]
                     if graph[tmpx] == 0:
                         graph[tmpx] = graph[nx]
                         queue.append(tmpx)
-                
+
                 else:
                     queue.append(nx)
 
 
-
-
-N,M = map(int, input().split())
+N, M = map(int, input().split())
 graph = [0] * 101
 
 ladder = {}

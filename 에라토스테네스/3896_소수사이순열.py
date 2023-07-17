@@ -1,8 +1,8 @@
 N = 1299710
-array = [False,False] + [True]*(N-2)
+array = [False, False] + [True] * (N - 2)
 
-for i in range(2,N):
-    for j in range(2*i, N, i):
+for i in range(2, N):
+    for j in range(2 * i, N, i):
         array[j] = False
 
 T = int(input())
@@ -13,16 +13,12 @@ for t in range(T):
     else:
         l = k - 1
         r = k + 1
-        while(True):
+        while (True):
             if array[l]:
                 break
             l -= 1
-        while(True):
+        while (True):
             if array[r]:
                 break
             r += 1
-        print(r-l)
-
-
-                
-
+        print(r - l)

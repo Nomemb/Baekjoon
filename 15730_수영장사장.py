@@ -14,7 +14,7 @@ while True:
     else:
         sum += end
         end += 1
-    
+
     if sum == N:
         count += 1
 

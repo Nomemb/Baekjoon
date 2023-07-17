@@ -5,9 +5,9 @@ high = K
 ans = 0
 while low <= high:
     count = 0
-    mid = (low+high)//2
-    for i in range(1,N+1):
-        count += min(mid//i,N)
+    mid = (low + high) // 2
+    for i in range(1, N + 1):
+        count += min(mid // i, N)
     if count < K:
         low = mid + 1
     else:

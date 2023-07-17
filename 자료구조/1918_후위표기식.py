@@ -23,7 +23,3 @@ for i in range(len(a)):
 while operator:
     ans += operator.pop()
 print(ans)
-
-
-
-

@@ -1,10 +1,10 @@
-N,M = map(int,input().split())
-array = list(map(int,input().split()))
-start,end = sum(array)//M,sum(array)
+N, M = map(int, input().split())
+array = list(map(int, input().split()))
+start, end = sum(array) // M, sum(array)
 ans = end
 
 while start <= end:
-    mid = (start+end)//2
+    mid = (start + end) // 2
     sum = 0
     count = 0
 
@@ -21,14 +21,11 @@ while start <= end:
             sum = array[i]
             count += 1
 
-    
-    if count <= M-1:
+    if count <= M - 1:
         end = mid - 1
-        ans = min((mid,ans))
-        
+        ans = min((mid, ans))
+
     else:
         start = mid + 1
-        
-    
-print(ans)
 
+print(ans)

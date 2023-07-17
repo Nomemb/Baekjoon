@@ -1,4 +1,4 @@
-N,K = map(int, input().split())
+N, K = map(int, input().split())
 price = []
 for i in range(N):
     price.append(int(input()))
@@ -6,8 +6,8 @@ for i in range(N):
 price.reverse()
 count = 0
 for i in range(N):
-    if(price[i] <= K):
-        c = K//price[i]
+    if (price[i] <= K):
+        c = K // price[i]
         K -= c * price[i]
         count += c
 

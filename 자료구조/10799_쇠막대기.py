@@ -5,7 +5,7 @@ for i in range(len(line)):
     if line[i] == "(":
         stack.append(i)
     else:
-        if line[i-1]=="(":
+        if line[i - 1] == "(":
             stack.pop()
             count += len(stack)
         else:

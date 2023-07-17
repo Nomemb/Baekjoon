@@ -1,6 +1,8 @@
 # https://www.acmicpc.net/problem/4195
 import sys
+
 input = sys.stdin.readline
+
 
 def getParent(parents, k):
     if parents[k] == k:
@@ -9,12 +11,14 @@ def getParent(parents, k):
     parents[k] = p
     return p
 
+
 def unionParent(parents, x, y, count):
     a = getParent(parents, x)
     b = getParent(parents, y)
     if a != b:
         parents[b] = a
         count[a] += count[b]
+
 
 for _ in range(int(input())):
     parents = {}
@@ -28,10 +32,6 @@ for _ in range(int(input())):
         if y not in parents:
             parents[y] = y
             count[y] = 1
-        
-        unionParent(parents, x,y,count)
-        print(count[getParent(parents,x)])
 
-
-
-
+        unionParent(parents, x, y, count)
+        print(count[getParent(parents, x)])
